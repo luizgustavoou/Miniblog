@@ -1,9 +1,20 @@
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import About from "./pages/About/About";
+import Home from "./pages/Home/Home";
+// pages
 
 function App() {
   return (
     <div className="App">
-      <h1>Miniblog</h1>
+      <BrowserRouter>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
