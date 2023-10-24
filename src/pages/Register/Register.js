@@ -44,7 +44,7 @@ const Register = () => {
             placeholder="Confirme a sua senha"
           />
         </label>
-        <button className="btn">Cadastrar</button>
+        <button className="btn btn-outline">Cadastrar</button>
       </form>
     </div>
   );
