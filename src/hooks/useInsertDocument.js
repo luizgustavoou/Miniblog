@@ -42,10 +42,9 @@ export const useInsertDocument = (docCollection) => {
     try {
       const newDocument = { ...document, createdAt: Timestamp.now() };
 
-      const insertedDocument = await addDoc(
-        collection(db, docCollection),
-        newDocument
-      );
+      const collectionRef = await collection(db, docCollection);
+
+      const insertedDocument = await addDoc(collectionRef, newDocument);
 
       checkCancelBeforeDispatch({
         type: "INSERTED_DOC",
