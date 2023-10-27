@@ -8,7 +8,7 @@ import { useAuthValue } from "../context/AuthContext";
 const Navbar = () => {
   const { user } = useAuthValue();
   const { logout } = useAuthentication();
-  
+
   return (
     <nav className={styles.navbar}>
       <NavLink to="/" className={styles.brand}>
@@ -47,7 +47,7 @@ const Navbar = () => {
           <>
             <li>
               <NavLink
-                to="/post/create"
+                to="/posts/create"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
                 Novo post

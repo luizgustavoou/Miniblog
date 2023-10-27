@@ -52,7 +52,7 @@ function App() {
                 element={!false ? <Register /> : <Navigate to="/" />}
               />
               <Route
-                path="/post/create"
+                path="/posts/create"
                 element={user ? <CreatePost /> : <Navigate to="/login" />}
               />
               <Route
