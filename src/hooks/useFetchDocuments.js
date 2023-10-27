@@ -9,9 +9,10 @@ import {
 } from "firebase/firestore";
 
 export const useFetchDocuments = (docCollection, search = null, uid = null) => {
-  const [documents, setdDcuments] = useState(null);
+  const [documents, setDocuments] = useState(null);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
+
   // deal with memory leak
   const [cancelled, setCancelled] = useState(false);
 
@@ -24,14 +25,14 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
       const collectionRef = await collection(db, docCollection);
 
       try {
-        let q;
+        let myQuery;
 
         // busca
         // dashboard
-        q = await query(collectionRef, orderBy("createdAt", "desc"));
+        myQuery = await query(collectionRef, orderBy("createdAt", "desc"));
 
-        await onSnapshot(q, (querySnapshot) => {
-          setdDcuments(
+        await onSnapshot(myQuery, (querySnapshot) => {
+          setDocuments(
             querySnapshot.docs.map((doc) => ({
               id: doc.id,
               ...doc.data(),
