@@ -68,6 +68,7 @@ const CreatePost = () => {
         </label>
 
         <label>
+          ''
           <span>URL da imagem</span>
           <input
             type="text"

@@ -6,6 +6,7 @@ import {
   orderBy,
   onSnapshot,
   where,
+  doc,
 } from "firebase/firestore";
 
 export const useFetchDocuments = (docCollection, search = null, uid = null) => {
@@ -16,9 +17,13 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
   // deal with memory leak
   const [cancelled, setCancelled] = useState(false);
 
+  const checkCancelBeforeLoad = () => {
+    if (cancelled) return;
+  };
+
   useEffect(() => {
     async function loadData() {
-      if (cancelled) return;
+      checkCancelBeforeLoad();
 
       setLoading(true);
 
@@ -28,8 +33,17 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
         let myQuery;
 
         // busca
+
         // dashboard
-        myQuery = await query(collectionRef, orderBy("createdAt", "desc"));
+        if (search) {
+          myQuery = await query(
+            collectionRef,
+            where("tags", "array-contains", search),
+            orderBy("createdAt", "desc")
+          );
+        } else {
+          myQuery = await query(collectionRef, orderBy("createdAt", "desc"));
+        }
 
         await onSnapshot(myQuery, (querySnapshot) => {
           setDocuments(

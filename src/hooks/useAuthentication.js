@@ -11,15 +11,15 @@ import {
 import { useState, useEffect } from "react";
 
 export const useAuthentication = () => {
+  // Initialize Firebase Authentication and get a reference to the service
   const auth = getAuth();
-  
+
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
 
   // cleanup
   // deal with memory leak
   const [cancelled, setCancelled] = useState(false);
-
 
   function checkIfIsCancelled() {
     if (cancelled) {
