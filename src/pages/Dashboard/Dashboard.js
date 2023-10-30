@@ -7,6 +7,7 @@ import {
   useFetchDocument,
   useFetchDocuments,
 } from "../../hooks/useFetchDocuments";
+import { useDeleteDocument } from "../../hooks/useDeleteDocument";
 
 const Dashboard = () => {
   const { user } = useAuthValue();
@@ -15,9 +16,7 @@ const Dashboard = () => {
   // posts do usuario
   const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
 
-  const deleteDocument = (id) => {
-    console.log({ id });
-  };
+  const { deleteDocument } = useDeleteDocument("posts");
 
   if (loading) {
     return <p>Carregando..</p>;
