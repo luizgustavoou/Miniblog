@@ -6,11 +6,11 @@ import { useAuthValue } from "../../context/AuthContext";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 
 const CreatePost = () => {
-  const [title, setTitle] = useState();
-  const [image, setImage] = useState();
-  const [body, setBody] = useState();
-  const [tags, setTags] = useState();
-  const [formError, setFormError] = useState();
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
+  const [body, setBody] = useState("");
+  const [tags, setTags] = useState("");
+  const [formError, setFormError] = useState("");
 
   const { user } = useAuthValue();
 
