@@ -33,7 +33,6 @@ function App() {
     });
   }, [auth]);
 
-  console.log({ user });
   if (loadingUser) {
     return <p>Carregando...</p>;
   }

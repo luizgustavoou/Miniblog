@@ -53,13 +53,11 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
           myQuery = await query(collectionRef, orderBy("createdAt", "desc"));
         }
 
-        await onSnapshot(myQuery, (querySnapshot) => {
-          setDocuments(
-            querySnapshot.docs.map((doc) => {
+        await onSnapshot(myQuery, async (querySnapshot) => {
+          const docs = await Promise.all(
+            querySnapshot.docs.map(async (doc) => {
               const data = doc.data();
               const comments = [];
-              // Access subcollections
-              const mainDocRef = doc.ref;
 
               const subCollection1Query = collection(
                 db,
@@ -68,20 +66,17 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
                 "room"
               );
 
-              getDocs(subCollection1Query).then((subCollection1Snapshot) => {
-                subCollection1Snapshot.forEach((subDoc) => {
-                  const subDocData = subDoc.data();
+              const subCollection1Snapshot = await getDocs(subCollection1Query);
 
-                  comments.push({
-                    id: subDoc.id,
-                    createdAt: subDoc.createdAt,
-                    message: subDoc.message,
-                  });
+              subCollection1Snapshot.forEach((subDoc) => {
+                const subDocData = subDoc.data();
 
-                  console.log({ comments });
+                comments.push({
+                  id: subDoc.id,
+                  createdAt: subDocData.createdAt,
+                  message: subDocData.message,
                 });
               });
-              console.log({ comments });
 
               return {
                 id: doc.id,
@@ -90,6 +85,8 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
               };
             })
           );
+
+          setDocuments(docs);
         });
       } catch (error) {
         console.log({ error });

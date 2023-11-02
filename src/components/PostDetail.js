@@ -18,7 +18,6 @@ const PostDetail = ({ post }) => {
 
   return (
     <div className={styles.post_detail}>
-      {JSON.stringify(post)}
       <div className={styles.header}>
         <h2 className={styles.createdBy}>{post.createdBy}</h2>
         <span className={styles.createdAt}>
