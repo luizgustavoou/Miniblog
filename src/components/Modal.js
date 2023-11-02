@@ -21,7 +21,9 @@ const Modal = () => {
   return (
     <div className={styles.box}>
       <div className={styles.modal}>
-        <div className={styles.header}>{/* <h1>Header!</h1> */}</div>
+        <div className={styles.header}>
+          <h2>Post: O paraiso do mar</h2>
+        </div>
         <div className={styles.body}>
           <div className={styles.comments}>
             {comments &&
@@ -33,8 +35,8 @@ const Modal = () => {
               ))}
           </div>
         </div>
-        <div className={styles.action}>
-          <h2>comentariso</h2>
+        <div className={styles.actions}>
+          <input type="text" placeholder="Comentar..." />
         </div>
       </div>
     </div>
