@@ -59,22 +59,21 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
               const data = doc.data();
               const comments = [];
 
-              const subCollection1Query = collection(
+              const subCollectionRef = collection(
                 db,
                 docCollection,
                 doc.id,
                 "room"
               );
 
-              const subCollection1Snapshot = await getDocs(subCollection1Query);
+              const subQuerySnapshot = await getDocs(subCollectionRef);
 
-              subCollection1Snapshot.forEach((subDoc) => {
+              subQuerySnapshot.forEach((subDoc) => {
                 const subDocData = subDoc.data();
 
                 comments.push({
                   id: subDoc.id,
-                  createdAt: subDocData.createdAt,
-                  message: subDocData.message,
+                  ...subDoc.data(),
                 });
               });
 

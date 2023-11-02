@@ -24,7 +24,6 @@ const Home = () => {
 
   return (
     <div className={styles.home}>
-      {JSON.stringify(posts)}
       <h1>Veja os nossos posts mais recentes</h1>
       <form onSubmit={handleSubmit} className={styles.search_form}>
         <input

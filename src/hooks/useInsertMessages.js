@@ -34,17 +34,19 @@ export const useInsertMessage = () => {
     }
   };
 
-  const insertMessage = async (id) => {
+  const insertMessage = async (idPost, message, uid, commentedBy) => {
     checkCancelBeforeDispatch({
       type: "LOADING",
     });
     try {
       const newMessage = {
         createdAt: Timestamp.now(),
-        message: "teste message",
+        message,
+        uid,
+        commentedBy,
       };
 
-      const collectionRef = await collection(db, "posts", id, "room");
+      const collectionRef = await collection(db, "posts", idPost, "room");
 
       const insertedMessage = await addDoc(collectionRef, newMessage);
 

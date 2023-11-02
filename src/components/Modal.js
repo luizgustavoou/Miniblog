@@ -1,20 +1,15 @@
 import styles from "./Modal.module.css";
 import { AiOutlineClose } from "react-icons/ai";
+import { useState } from "react";
+const Modal = ({ handleClose, title, handleActionComment, comments }) => {
 
-const Modal = ({ handleClose, title }) => {
-  const comments = [
-    { user: "luiz", message: "kkkk" },
-    { user: "jose", message: "legal!" },
-    { user: "italo", message: "puts!!" },
-    { user: "hugo", message: "parabens man succeso hehe xd :D" },
-    { user: "lucas", message: "ugauga" },
-    { user: "lucas", message: "ugauga" },
-    { user: "lucas", message: "ugauga" },
-    { user: "lucas", message: "ugauga" },
-    { user: "lucas", message: "ugauga" },
-    { user: "lucas", message: "ugauga" },
-  ];
 
+  const [message, setMessage] = useState("");
+
+  const handleClickButton = () => {
+    handleActionComment(message);
+    setMessage("");
+  };
   return (
     <div className={styles.box}>
       <div className={styles.modal}>
@@ -29,14 +24,22 @@ const Modal = ({ handleClose, title }) => {
             {comments &&
               comments.map((comment) => (
                 <div className={styles.box_comment}>
-                  <span className={styles.user}>{comment.user}</span>
+                  <span className={styles.user}>{comment.commentedBy}</span>
                   <span>{comment.message}</span>
                 </div>
               ))}
           </div>
         </div>
         <div className={styles.actions}>
-          <input type="text" placeholder="Comentar..." />
+          <button className="btn" onClick={handleClickButton}>
+            Comentar
+          </button>
+          <input
+            type="text"
+            placeholder="Comentar..."
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
         </div>
       </div>
     </div>

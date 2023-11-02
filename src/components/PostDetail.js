@@ -6,14 +6,19 @@ import { Link } from "react-router-dom";
 import { dateFormatted } from "../utils/formatData";
 import Modal from "./Modal";
 import { useState } from "react";
+import { useAuthValue } from "../context/AuthContext";
 
 const PostDetail = ({ post }) => {
   const { insertMessage } = useInsertMessage();
-
   const [open, setOpen] = useState(false);
+  const { user } = useAuthValue();
 
   const toggleModal = () => {
     setOpen(!open);
+  };
+
+  const handleActionComment = async (message) => {
+    await insertMessage(post.id, message, user.uid, user.displayName);
   };
 
   return (
@@ -47,7 +52,12 @@ const PostDetail = ({ post }) => {
         </div>
       </div>
       {open && (
-        <Modal title={post.title} handleClose={() => toggleModal()}></Modal>
+        <Modal
+          comments={post.comments}
+          handleActionComment={handleActionComment}
+          title={post.title}
+          handleClose={() => toggleModal()}
+        ></Modal>
       )}
     </div>
   );
