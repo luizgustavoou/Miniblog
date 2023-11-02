@@ -4,10 +4,19 @@ import styles from "./PostDetail.module.css";
 import { Link } from "react-router-dom";
 
 import { dateFormatted } from "../utils/formatData";
+import Modal from "./Modal";
+import { useState } from "react";
 
 const PostDetail = ({ post }) => {
   const { insertMessage } = useInsertMessage();
 
+  const [open, setOpen] = useState(false);
+
+  const toggleModal = () => {
+    setOpen(!open);
+  };
+
+  
   return (
     <div className={styles.post_detail}>
       <div className={styles.header}>
@@ -16,7 +25,6 @@ const PostDetail = ({ post }) => {
           {dateFormatted(post.createdAt.seconds)}
         </span>
       </div>
-
       <div className={styles.body}>
         <h2>{post.title}</h2>
         <p className={styles.content}>{post.content}</p>
@@ -34,14 +42,12 @@ const PostDetail = ({ post }) => {
 
           Ler
         </Link> */}
-          <button
-            onClick={() => insertMessage(post.id)}
-            className="btn btn-outline btn-danger"
-          >
+          <button onClick={toggleModal} className="btn btn-outline btn-danger">
             Comentários
           </button>
         </div>
       </div>
+      {open && <Modal handleClose={() => toggleModal()}></Modal>}
     </div>
   );
 };
