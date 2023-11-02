@@ -1,9 +1,7 @@
 import styles from "./Modal.module.css";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineSend } from "react-icons/ai";
 import { useState } from "react";
 const Modal = ({ handleClose, title, handleActionComment, comments }) => {
-
-
   const [message, setMessage] = useState("");
 
   const handleClickButton = () => {
@@ -31,15 +29,16 @@ const Modal = ({ handleClose, title, handleActionComment, comments }) => {
           </div>
         </div>
         <div className={styles.actions}>
-          <button className="btn" onClick={handleClickButton}>
-            Comentar
-          </button>
-          <input
+          <textarea
             type="text"
             placeholder="Comentar..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            re
           />
+          <button onClick={handleClickButton}>
+            <AiOutlineSend></AiOutlineSend>
+          </button>
         </div>
       </div>
     </div>
