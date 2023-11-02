@@ -1,6 +1,6 @@
 import { useState, useEffect, useReducer } from "react";
 import { db } from "../firebase/config";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { doc, collection, addDoc, Timestamp, setDoc } from "firebase/firestore";
 
 const initialState = {
   loading: null,
@@ -11,7 +11,7 @@ const insertReducer = (state, action) => {
   switch (action.type) {
     case "LOADING":
       return { loading: true, error: null };
-    case "INSERTED_DOC":
+    case "INSERTED_MESSAGE":
       return { loading: false, error: null };
 
     case "ERROR":
@@ -22,7 +22,7 @@ const insertReducer = (state, action) => {
   }
 };
 
-export const useInsertDocument = (docCollection) => {
+export const useInsertMessage = () => {
   const [response, dispatch] = useReducer(insertReducer, initialState);
 
   // deal with memory leak
@@ -34,23 +34,24 @@ export const useInsertDocument = (docCollection) => {
     }
   };
 
-  const insertDocument = async (document) => {
+  const insertMessage = async (id) => {
     checkCancelBeforeDispatch({
       type: "LOADING",
     });
-
     try {
-      const newDocument = { ...document, createdAt: Timestamp.now() };
+      const newMessage = {
+        createdAt: Timestamp.now(),
+        message: "teste message",
+      };
 
-      const collectionRef = await collection(db, docCollection);
+      const collectionRef = await collection(db, "posts", id, "room");
 
-      const insertedDocument = await addDoc(collectionRef, newDocument);
+      const insertedMessage = await addDoc(collectionRef, newMessage);
 
-      
-      
-      checkCancelBeforeDispatch({
-        type: "INSERTED_DOC",
-        payload: insertedDocument,
+      console.log("insertedMessage => ", insertedMessage);
+      insertMessage.checkCancelBeforeDispatch({
+        type: "INSERTED_MESSAGE",
+        payload: insertedMessage,
       });
     } catch (error) {
       checkCancelBeforeDispatch({
@@ -65,7 +66,7 @@ export const useInsertDocument = (docCollection) => {
   }, []);
 
   return {
-    insertDocument,
+    insertMessage,
     response,
   };
 };
