@@ -10,6 +10,7 @@ import { useAuthValue } from "../context/AuthContext";
 
 const PostDetail = ({ post }) => {
   const { insertMessage } = useInsertMessage();
+
   const [open, setOpen] = useState(false);
   const { user } = useAuthValue();
 
@@ -53,9 +54,8 @@ const PostDetail = ({ post }) => {
       </div>
       {open && (
         <Modal
-          comments={post.comments}
+          post={post}
           handleActionComment={handleActionComment}
-          title={post.title}
           handleClose={() => toggleModal()}
         ></Modal>
       )}

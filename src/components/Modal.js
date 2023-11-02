@@ -1,8 +1,11 @@
 import styles from "./Modal.module.css";
 import { AiOutlineClose, AiOutlineSend } from "react-icons/ai";
 import { useState } from "react";
-const Modal = ({ handleClose, title, handleActionComment, comments }) => {
+import { useFetchComments } from "../hooks/useFetchComments";
+
+const Modal = ({ handleClose, post, handleActionComment }) => {
   const [message, setMessage] = useState("");
+  const { comments } = useFetchComments("posts", post.id);
 
   const handleClickButton = () => {
     handleActionComment(message);
@@ -10,9 +13,10 @@ const Modal = ({ handleClose, title, handleActionComment, comments }) => {
   };
   return (
     <div className={styles.box}>
+      {comments && comments.map((comment) => comment.message)}
       <div className={styles.modal}>
         <div className={styles.header}>
-          <h2 className={styles.title}>{title}</h2>
+          <h2 className={styles.title}>{post.title}</h2>
           <button onClick={handleClose}>
             <AiOutlineClose></AiOutlineClose>
           </button>
