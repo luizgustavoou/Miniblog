@@ -13,7 +13,6 @@ const Modal = ({ handleClose, post, handleActionComment }) => {
   };
   return (
     <div className={styles.box}>
-      {comments && comments.map((comment) => comment.message)}
       <div className={styles.modal}>
         <div className={styles.header}>
           <h2 className={styles.title}>{post.title}</h2>

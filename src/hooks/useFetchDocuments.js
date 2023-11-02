@@ -32,58 +32,39 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
       const collectionRef = await collection(db, docCollection);
 
       try {
-        let myQuery;
+        let querySnapshot;
 
         // busca
 
         // dashboard
         if (search) {
-          myQuery = await query(
+          querySnapshot = await query(
             collectionRef,
             where("tagsArray", "array-contains", search),
             orderBy("createdAt", "desc")
           );
         } else if (uid) {
-          myQuery = await query(
+          querySnapshot = await query(
             collectionRef,
             where("uid", "==", uid),
             orderBy("createdAt", "desc")
           );
         } else {
-          myQuery = await query(collectionRef, orderBy("createdAt", "desc"));
+          querySnapshot = await query(
+            collectionRef,
+            orderBy("createdAt", "desc")
+          );
         }
 
-        await onSnapshot(myQuery, async (querySnapshot) => {
-          const docs = await Promise.all(
-            querySnapshot.docs.map(async (doc) => {
-              const data = doc.data();
-              const comments = [];
+        await onSnapshot(querySnapshot, (querySnapshot) => {
+          const docs = querySnapshot.docs.map((doc) => {
+            const data = doc.data();
 
-              const subCollectionRef = collection(
-                db,
-                docCollection,
-                doc.id,
-                "room"
-              );
-
-              const subQuerySnapshot = await getDocs(subCollectionRef);
-
-              subQuerySnapshot.forEach((subDoc) => {
-                const subDocData = subDoc.data();
-
-                comments.push({
-                  id: subDoc.id,
-                  ...subDoc.data(),
-                });
-              });
-
-              return {
-                id: doc.id,
-                ...data,
-                comments,
-              };
-            })
-          );
+            return {
+              id: doc.id,
+              ...data,
+            };
+          });
 
           setDocuments(docs);
         });

@@ -3,10 +3,7 @@ import styles from "./Dashboard.module.css";
 import { Link } from "react-router-dom";
 // hooks
 import { useAuthValue } from "../../context/AuthContext";
-import {
-  useFetchDocument,
-  useFetchDocuments,
-} from "../../hooks/useFetchDocuments";
+import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import { useDeleteDocument } from "../../hooks/useDeleteDocument";
 
 const Dashboard = () => {

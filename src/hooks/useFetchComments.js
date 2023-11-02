@@ -23,7 +23,7 @@ export const useFetchComments = (docCollection, docId) => {
       const collectionRef = await collection(db, docCollection, docId, "room");
 
       try {
-        let myQuery = await query(collectionRef, orderBy("createdAt", "desc"));
+        let myQuery = await query(collectionRef, orderBy("createdAt", "asc"));
 
         await onSnapshot(myQuery, (querySnapshot) => {
           const docs = querySnapshot.docs.map((doc) => {
