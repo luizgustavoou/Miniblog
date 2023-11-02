@@ -1,7 +1,7 @@
 import styles from "./Modal.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 
-const Modal = ({ handleClose }) => {
+const Modal = ({ handleClose, title }) => {
   const comments = [
     { user: "luiz", message: "kkkk" },
     { user: "jose", message: "legal!" },
@@ -19,7 +19,7 @@ const Modal = ({ handleClose }) => {
     <div className={styles.box}>
       <div className={styles.modal}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Post: O paraiso do mar</h2>
+          <h2 className={styles.title}>{title}</h2>
           <button onClick={handleClose}>
             <AiOutlineClose></AiOutlineClose>
           </button>

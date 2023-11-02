@@ -16,9 +16,9 @@ const PostDetail = ({ post }) => {
     setOpen(!open);
   };
 
-  
   return (
     <div className={styles.post_detail}>
+      {JSON.stringify(post)}
       <div className={styles.header}>
         <h2 className={styles.createdBy}>{post.createdBy}</h2>
         <span className={styles.createdAt}>
@@ -27,7 +27,7 @@ const PostDetail = ({ post }) => {
       </div>
       <div className={styles.body}>
         <h2>{post.title}</h2>
-        <p className={styles.content}>{post.content}</p>
+        <p className={styles.content}>{post.body}</p>
         <img src={post.image} alt={post.title} />
         <div className={styles.tags}>
           {post.tagsArray.map((tag) => (
@@ -47,7 +47,9 @@ const PostDetail = ({ post }) => {
           </button>
         </div>
       </div>
-      {open && <Modal handleClose={() => toggleModal()}></Modal>}
+      {open && (
+        <Modal title={post.title} handleClose={() => toggleModal()}></Modal>
+      )}
     </div>
   );
 };

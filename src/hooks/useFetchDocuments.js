@@ -7,6 +7,8 @@ import {
   onSnapshot,
   where,
   doc,
+  collectionGroup,
+  getDocs,
 } from "firebase/firestore";
 
 export const useFetchDocuments = (docCollection, search = null, uid = null) => {
@@ -53,10 +55,40 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
 
         await onSnapshot(myQuery, (querySnapshot) => {
           setDocuments(
-            querySnapshot.docs.map((doc) => ({
-              id: doc.id,
-              ...doc.data(),
-            }))
+            querySnapshot.docs.map((doc) => {
+              const data = doc.data();
+              const comments = [];
+              // Access subcollections
+              const mainDocRef = doc.ref;
+
+              const subCollection1Query = collection(
+                db,
+                docCollection,
+                doc.id,
+                "room"
+              );
+
+              getDocs(subCollection1Query).then((subCollection1Snapshot) => {
+                subCollection1Snapshot.forEach((subDoc) => {
+                  const subDocData = subDoc.data();
+
+                  comments.push({
+                    id: subDoc.id,
+                    createdAt: subDoc.createdAt,
+                    message: subDoc.message,
+                  });
+
+                  console.log({ comments });
+                });
+              });
+              console.log({ comments });
+
+              return {
+                id: doc.id,
+                ...data,
+                comments,
+              };
+            })
           );
         });
       } catch (error) {
