@@ -31,7 +31,7 @@ const PostDetail = ({ post }) => {
         </div>
         <div className={styles.actions}>
           {/* <Link to={`post/${post.id}`} className="btn btn-outline">
-        
+
           Ler
         </Link> */}
           <button

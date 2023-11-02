@@ -6,7 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import PostDetail from "../../components/PostDetail";
-
+import Modal from "../../components/Modal";
 // components
 
 const Home = () => {
@@ -25,6 +25,7 @@ const Home = () => {
 
   return (
     <div className={styles.home}>
+      <Modal></Modal>
       <h1>Veja os nossos posts mais recentes</h1>
       <form onSubmit={handleSubmit} className={styles.search_form}>
         <input
@@ -35,7 +36,6 @@ const Home = () => {
         <button className="btn btn-dark">Pesquisar</button>
       </form>
       <div>
-        <h1>Posts...</h1>
         {loading && <p>Carregando...</p>}
         {posts &&
           posts.map((post) => (
