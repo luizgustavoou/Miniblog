@@ -14,7 +14,7 @@ A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e e
 -->
 
 ## Layout web
-![Web 1](https://github.com/acenelio/assets/raw/main/sds1/web1.png)
+![Web 1]([https://github.com/acenelio/assets/raw/main/sds1/web1.png](https://github.com/luizgustavoou/Miniblog/assets/89609312/c8ac25f0-3959-4d3d-a3e2-0bab38f9bddd))
 
 ![Web 2](https://github.com/acenelio/assets/raw/main/sds1/web2.png)
 
