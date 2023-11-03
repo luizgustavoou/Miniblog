@@ -2,12 +2,13 @@
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/devsuperior/sds1-wmazoni/blob/master/LICENSE) 
 
 # Sobre o projeto
-
+```
 https://wmazoni-sds1.netlify.app
+```
 
-Miniblog é uma aplicação full stack web e construída durante o curso "React do Zero", ministrado por [Matheus Battisti]([https://devsuperior.com](https://github.com/matheusbattisti) "Site da DevSuperior").
+Miniblog é uma aplicação full stack web e construída durante o curso "React do Zero", ministrado por Matheus Battisti.
 
-A aplicação consiste em uma pesquisa de preferência de games, onde os dados são coletados no app mobile, e depois são listados no app web, que também apresenta um dashboard com gráficos baseados nestes dados.
+A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e excluir posts, visualizar seu dashboard de posts e comentar posts.
 
 ```
 ## Layout mobile
@@ -77,7 +78,7 @@ yarn start
 
 # Autor
 
-Wellington Mazoni de Andrade
+Luiz Gustavo de Oliveira Umbelino
 
-https://www.linkedin.com/in/wmazoni
+[https://www.linkedin.com/in/wmazoni](https://www.linkedin.com/in/luiz-oliveira-802294294/)https://www.linkedin.com/in/luiz-oliveira-802294294/
 
