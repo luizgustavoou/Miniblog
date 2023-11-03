@@ -6,7 +6,7 @@
 https://wmazoni-sds1.netlify.app
 ```
 
-Miniblog é uma aplicação full stack web e construída durante o curso "React do Zero", ministrado por Matheus Battisti.
+Miniblog é uma aplicação full stack web construída durante o curso "React do Zero", ministrado por Matheus Battisti.
 
 A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e excluir posts, visualizar seu dashboard de posts e comentar posts.
 
