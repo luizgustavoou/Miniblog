@@ -13,7 +13,9 @@ const Modal = ({ handleClose, post, handleActionComment }) => {
   };
 
   return (
-    <div className={styles.fade}>
+    <>
+      <div className={styles.fade}></div>
+      
       <div className={styles.modal}>
         {loading && <p>Carregando comentários...</p>}
         {!loading && (
@@ -54,7 +56,7 @@ const Modal = ({ handleClose, post, handleActionComment }) => {
           </>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

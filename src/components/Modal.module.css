@@ -7,6 +7,12 @@
   width: 100%;
 }
 
+@keyframes example {
+  from {
+    top: 0;
+  }
+}
+
 .modal {
   position: fixed;
   display: flex;
@@ -19,6 +25,8 @@
   height: 500px;
   border-radius: 15px;
   padding: 0.3em 1.5em 1.5em 1.5em;
+  animation-name: example;
+  animation-duration: 0.4s;
 }
 
 .header {
