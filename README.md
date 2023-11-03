@@ -3,7 +3,7 @@
 
 # Sobre o projeto
 
-Miniblog é uma aplicação full stack web construída durante o curso "React do Zero", ministrado por Matheus Battisti.
+```Miniblog é uma aplicação full stack web construída durante o curso "React do Zero", ministrado por Matheus Battisti.```
 
 A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e excluir posts, visualizar seu dashboard de posts e comentar posts.
 
