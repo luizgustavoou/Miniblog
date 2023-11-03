@@ -11,38 +11,43 @@ const Modal = ({ handleClose, post, handleActionComment }) => {
     handleActionComment(message);
     setMessage("");
   };
+
   return (
     <div className={styles.fade}>
       <div className={styles.modal}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>{post.title}</h2>
-          <button onClick={handleClose}>
-            <AiOutlineClose></AiOutlineClose>
-          </button>
-        </div>
-        <div className={styles.body}>
-          <div className={styles.comments}>
-            {comments &&
-              comments.map((comment) => (
-                <div className={styles.box_comment}>
-                  <span className={styles.user}>{comment.commentedBy}</span>
-                  <span>{comment.message}</span>
-                </div>
-              ))}
-          </div>
-        </div>
-        <div className={styles.actions}>
-          <textarea
-            type="text"
-            placeholder="Comentar..."
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            re
-          />
-          <button onClick={handleClickButton}>
-            <AiOutlineSend></AiOutlineSend>
-          </button>
-        </div>
+        {loading && <p>Carregando comentários...</p>}
+        {!loading && (
+          <>
+            <div className={styles.header}>
+              <h2 className={styles.title}>{post.title}</h2>
+              <button onClick={handleClose}>
+                <AiOutlineClose></AiOutlineClose>
+              </button>
+            </div>
+            <div className={styles.body}>
+              <div className={styles.comments}>
+                {comments &&
+                  comments.map((comment) => (
+                    <div className={styles.box_comment} key={comment.id}>
+                      <span className={styles.user}>{comment.commentedBy}</span>
+                      <span>{comment.message}</span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+            <div className={styles.actions}>
+              <textarea
+                type="text"
+                placeholder="Comentar..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+              <button onClick={handleClickButton}>
+                <AiOutlineSend></AiOutlineSend>
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
