@@ -5,14 +5,14 @@ import { useFetchComments } from "../hooks/useFetchComments";
 
 const Modal = ({ handleClose, post, handleActionComment }) => {
   const [message, setMessage] = useState("");
-  const { comments } = useFetchComments("posts", post.id);
+  const { comments, loading, error } = useFetchComments("posts", post.id);
 
   const handleClickButton = () => {
     handleActionComment(message);
     setMessage("");
   };
   return (
-    <div className={styles.box}>
+    <div className={styles.fade}>
       <div className={styles.modal}>
         <div className={styles.header}>
           <h2 className={styles.title}>{post.title}</h2>
