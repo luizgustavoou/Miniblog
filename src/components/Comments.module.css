@@ -1,0 +1,67 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3em;
+  }
+  
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 0.8em;
+  }
+  
+  .footer {
+    padding: 0.3em;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  .footer textarea {
+    flex: 1;
+    box-sizing: border-box;
+    height: 100%;
+    font-size: 15px;
+    border: none;
+    padding: 0.8em 0;
+    resize: none;
+  }
+  
+  .box_comment {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 50px;
+    background-color: #b9b4c7;
+    border-radius: 10px;
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+  }
+  
+  .box_comment .user {
+    font-weight: bold;
+  }
+  
+  button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    font-weight: bold;
+  }
+  
+  .container_error {
+    color: #141414;
+    background-color: #ffcc00;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
