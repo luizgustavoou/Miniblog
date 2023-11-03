@@ -5,7 +5,7 @@
 
 https://wmazoni-sds1.netlify.app
 
-Miniblog é uma aplicação full stack web e construída durante o curso "React do Zero", ministrado por Matheus Battisti, Hora de Codar. pela [DevSuperior](https://devsuperior.com "Site da DevSuperior").
+Miniblog é uma aplicação full stack web e construída durante o curso "React do Zero", ministrado por [Matheus Battisti]([https://devsuperior.com](https://github.com/matheusbattisti) "Site da DevSuperior").
 
 A aplicação consiste em uma pesquisa de preferência de games, onde os dados são coletados no app mobile, e depois são listados no app web, que também apresenta um dashboard com gráficos baseados nestes dados.
 
