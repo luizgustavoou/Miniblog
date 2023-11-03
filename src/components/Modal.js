@@ -31,15 +31,13 @@ const Modal = ({ handleClose, post, handleActionComment }) => {
                 </div>
               )}
 
-              <div className={styles.comments}>
-                {comments &&
-                  comments.map((comment) => (
-                    <div className={styles.box_comment} key={comment.id}>
-                      <span className={styles.user}>{comment.commentedBy}</span>
-                      <span>{comment.message}</span>
-                    </div>
-                  ))}
-              </div>
+              {comments &&
+                comments.map((comment) => (
+                  <div className={styles.box_comment} key={comment.id}>
+                    <span className={styles.user}>{comment.commentedBy}</span>
+                    <span>{comment.message}</span>
+                  </div>
+                ))}
             </div>
             <div className={styles.footer}>
               <textarea
