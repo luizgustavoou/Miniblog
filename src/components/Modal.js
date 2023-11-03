@@ -19,12 +19,18 @@ const Modal = ({ handleClose, post, handleActionComment }) => {
         {!loading && (
           <>
             <div className={styles.header}>
-              <h2 className={styles.title}>{post.title}</h2>
+              <h2>{post.title}</h2>
               <button onClick={handleClose}>
                 <AiOutlineClose></AiOutlineClose>
               </button>
             </div>
-            <div className={styles.body}>
+            <div className={styles.main}>
+              {comments && comments.length == 0 && (
+                <div className={styles.container_error}>
+                  Seja o primeiro a comentar!
+                </div>
+              )}
+
               <div className={styles.comments}>
                 {comments &&
                   comments.map((comment) => (
@@ -35,8 +41,9 @@ const Modal = ({ handleClose, post, handleActionComment }) => {
                   ))}
               </div>
             </div>
-            <div className={styles.actions}>
+            <div className={styles.footer}>
               <textarea
+                required
                 type="text"
                 placeholder="Comentar..."
                 value={message}

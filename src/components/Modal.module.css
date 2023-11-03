@@ -23,17 +23,17 @@
 
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  height: 10%;
+  /* height: 10%; */
   margin-bottom: 0.3em;
 }
-.header .title {
-  margin-right: auto;
-}
 
-.body {
+.main {
+  flex: 1;
   overflow: auto;
-  height: 90%;
+  /* height: 90%; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 0.8em;
@@ -45,7 +45,23 @@
   margin-bottom: auto;
 }
 
-.actions {
+.box_comment {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 50px;
+  background-color: #b9b4c7;
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+}
+
+.box_comment .user {
+  font-weight: bold;
+}
+
+.footer {
   padding: 0.3em;
   border: 1px solid #ccc;
   display: flex;
@@ -53,7 +69,7 @@
   border-radius: 10px;
 }
 
-.actions textarea {
+.footer textarea {
   flex: 1;
   box-sizing: border-box;
   /* width: 100%; */
@@ -65,24 +81,20 @@
   resize: none;
 }
 
-.box_comment {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 50px;
-  background-color: #b9b4c7;
-  border-radius: 10px;
-  margin-bottom: 0.5em;
-  padding: 0.5em;
-}
-
-.box_comment .user {
-  font-weight: bold;
-}
-
 button {
   border: none;
   background: transparent;
   cursor: pointer;
+}
+
+button:hover {
+  font-weight: bold;
+}
+
+.container_error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 5px;
+  border-radius: 5px;
 }
