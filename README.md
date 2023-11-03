@@ -26,9 +26,9 @@ A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e e
 * <b>Dashboard posts</b>;
   
 # :wrench: Tecnologias utilizadas
-## Backednd
+## Back end
 * Firebase;
-## Frontend
+## Front end
 * HTML / CSS / JS / TypeScript
 * ReactJS
 * react-router-dom
