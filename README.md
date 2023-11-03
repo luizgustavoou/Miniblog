@@ -14,7 +14,8 @@ A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e e
 -->
 
 ## Layout web
-[video miniblog](https://github.com/luizgustavoou/Miniblog/assets/89609312/fa7e2f1a-ef13-448b-a410-d42392d14d78)
+[video miniblog](https://github.com/luizgustavoou/Miniblog/assets/89609312/2eae513a-ed78-4a62-b044-b7ae4c9a5143)
+
 
 
 
