@@ -21,7 +21,7 @@ A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e e
 * <b>Autenticação</b>;
 * <b>Criar, editar e remover posts</b>;
 * <b>Dashboard posts</b>;
-* <b> Adicioanr comentários aos posts</b>
+* <b> Adicionar comentários aos posts</b>
   
 # :wrench: Tecnologias utilizadas
 ## Back end
