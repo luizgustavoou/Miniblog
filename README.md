@@ -3,15 +3,25 @@
 
 # Sobre o projeto
 
-```Miniblog é uma aplicação full stack web construída durante o curso "React do Zero", ministrado por Matheus Battisti.```
+<!-- https://wmazoni-sds1.netlify.app -->
+
+Miniblog é uma aplicação full stack web construída durante o curso "React do Zero", ministrado por Matheus Battisti.
 
 A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e excluir posts, visualizar seu dashboard de posts e comentar posts.
+
+<!--## Layout mobile
+![Mobile 1](https://github.com/acenelio/assets/raw/main/sds1/mobile1.png) ![Mobile 2](https://github.com/acenelio/assets/raw/main/sds1/mobile2.png)
+-->
 
 ## Layout web
 ![Web 1](https://github.com/acenelio/assets/raw/main/sds1/web1.png)
 
 ![Web 2](https://github.com/acenelio/assets/raw/main/sds1/web2.png)
 
+<!--
+## Modelo conceitual
+![Modelo Conceitual](https://github.com/acenelio/assets/raw/main/sds1/modelo-conceitual.png)
+-->
 # Tecnologias utilizadas
 ## Back end
 - Firebase: Firestore Database e Authentication
@@ -22,6 +32,10 @@ A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e e
 - react-icons
 - moment
 - react-router-dom
+<!--## Implantação em produção
+- Back end: Heroku
+- Front end web: Netlify
+- Banco de dados: Postgresql -->
 
 # Como executar o projeto
 
