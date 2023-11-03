@@ -1,7 +1,7 @@
 # Miniblog
 <!-- license --> 
 
-# Sobre o projeto
+## :memo:  Sobre o projeto
 
 <!-- https://wmazoni-sds1.netlify.app -->
 
@@ -16,24 +16,24 @@ A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e e
 ## Layout web
 [video miniblog](https://github.com/luizgustavoou/Miniblog/assets/89609312/2eae513a-ed78-4a62-b044-b7ae4c9a5143)
 
-
-
-
-
 <!--
 ## Modelo conceitual
 ![Modelo Conceitual](https://github.com/acenelio/assets/raw/main/sds1/modelo-conceitual.png)
 -->
+## :books: Funcionalidades
+* <b>Autenticação</b>;
+* <b>Criar, editar e remover posts</b>;
+* <b>Dashboard posts</b>;
 # Tecnologias utilizadas
-## Back end
-- Firebase: Firestore Database e Authentication
-## Front end
-- HTML / CSS / JS / TypeScript
-- ReactJS
-- react-router-dom
-- react-icons
-- moment
-- react-router-dom
+## :wrench: Tecnologias utilizadas backend
+* Firebase;
+## :wrench: Tecnologias utilizadas
+* HTML / CSS / JS / TypeScript
+* ReactJS
+* react-router-dom
+* react-icons
+* moment
+* react-router-dom
 <!--## Implantação em produção
 - Back end: Heroku
 - Front end web: Netlify
