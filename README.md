@@ -16,7 +16,10 @@ A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e e
 ## Layout web
 ![layout web](https://github.com/luizgustavoou/Miniblog/assets/89609312/c8ac25f0-3959-4d3d-a3e2-0bab38f9bddd)
 
-![Web 2](https://github.com/acenelio/assets/raw/main/sds1/web2.png)
+![layout auth](https://github.com/luizgustavoou/Miniblog/assets/89609312/f2e4f65e-aa5f-4254-8f46-a751e0a00597)
+
+![layout dashboard](https://github.com/luizgustavoou/Miniblog/assets/89609312/f2754bbe-6d15-40d8-8d7c-ca431faf699e)
+
 
 <!--
 ## Modelo conceitual
