@@ -69,6 +69,8 @@ npm i
 # executar o projeto
 npm start
 ```
+## :dart: Status do projeto
+Finalizado
 
 # Autor
 
