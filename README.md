@@ -69,6 +69,8 @@ npm i
 # executar o projeto
 npm start
 ```
+## :soon: Implementação futura
+
 ## :dart: Status do projeto
 Finalizado
 
