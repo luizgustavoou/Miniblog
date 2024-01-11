@@ -33,10 +33,8 @@ A aplicação consiste em um miniblog, onde o usuário poderá criar ,editar e e
 * react-icons
 * moment
 * react-router-dom
-<!--## Implantação em produção
-- Back end: Heroku
-- Front end web: Netlify
-- Banco de dados: Postgresql -->
+
+<!--## Implantação em produção -->
 
 # :rocket: Rodando o projeto
 
